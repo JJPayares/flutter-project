@@ -49,6 +49,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _index = 0;
+
+  List<Color> colorList = [
+    Colors.black,
+    Colors.amber,
+    Colors.blue,
+    Colors.green,
+  ];
+
+  final String _message = 'Magic Message!';
 
   void _incrementCounter() {
     setState(() {
@@ -59,6 +69,20 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  void _changeColor() {
+    setState(() {
+      _index++;
+      if (_index > colorList.length - 1) {
+        _index = 0;
+      }
+    });
+  }
+
+  void _floatButtonActions() {
+    _incrementCounter();
+    _changeColor();
   }
 
   @override
@@ -100,13 +124,20 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4?.copyWith(color: Colors.amber),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline4
+                  ?.copyWith(color: colorList[_index]),
             ),
+            Text(
+              _message,
+              style: TextStyle(color: colorList[_index], fontSize: 30),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _floatButtonActions,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
