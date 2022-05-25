@@ -9,10 +9,21 @@ class DinamicContador extends StatefulWidget {
 
 class _DinamicContadorState extends State<DinamicContador> {
   int counter = 0;
-  void buttonActions() {
+
+  counterAdd1() {
+    counter++;
+    setState(() {});
+  }
+
+  counterRest1() {
     setState(() {
-      counter++;
+      counter--;
     });
+  }
+
+  counterSet0() {
+    counter = 0;
+    setState(() {});
   }
 
   @override
@@ -39,13 +50,43 @@ class _DinamicContadorState extends State<DinamicContador> {
           )
         ],
       )),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          buttonActions();
-          print(counter);
-        },
+      floatingActionButton: CustomFloatingButtons(
+        increase: counterAdd1,
+        decrease: counterRest1,
+        reset: counterSet0,
       ),
+    );
+  }
+}
+
+class CustomFloatingButtons extends StatelessWidget {
+  final Function increase;
+  final Function decrease;
+  final Function reset;
+  const CustomFloatingButtons({
+    Key? key,
+    required this.increase,
+    required this.decrease,
+    required this.reset,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () => increase(),
+        ),
+        FloatingActionButton(
+          child: const Icon(Icons.restore),
+          onPressed: () => reset(),
+        ),
+        FloatingActionButton(
+          child: const Icon(Icons.remove),
+          onPressed: () => decrease(),
+        )
+      ],
     );
   }
 }
