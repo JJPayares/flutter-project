@@ -136,6 +136,24 @@ class ListView1 extends StatelessWidget {
               ),
               title: Text(wb_novels[index][
                   "name"]!), // El signo de exclamacion se usa para indicar de que el valor si existe, en caso de que la funcion si o si requiera un valor, es decir, no acepte null's
+              onTap: () => showDialog(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                        title: Text(
+                            'Hiciste click en ${wb_novels[index]["name"]}'),
+                        content: const Text('No hay acciones preparadas...'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () =>
+                                Navigator.pop(context, 'Salir por aqui'),
+                            child: const Text('Salir por aca'),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      )),
             );
           },
         ));
