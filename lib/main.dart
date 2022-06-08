@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_project_1/views/count.dart';
@@ -9,14 +10,19 @@ import 'package:mobile_project_1/views/home_view.dart';
 import 'package:mobile_project_1/views/list_view_1.dart';
 import 'package:mobile_project_1/views/text_whit_alert.dart';
 
-void main() {
+import 'views/firebase.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ListView1());
+    return MaterialApp(
+        debugShowCheckedModeBanner: false, home: FirstFirebase());
     // Scaffold(
     //   appBar: AppBar(
     //     title: const Text("Title"),
