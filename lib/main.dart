@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, unused_import
+
 import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -21,8 +23,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false, home: FirstFirebase());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: ListView1());
     // Scaffold(
     //   appBar: AppBar(
     //     title: const Text("Title"),

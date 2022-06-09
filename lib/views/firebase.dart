@@ -6,7 +6,6 @@ class FirstFirebase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    callDatabase();
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
@@ -24,11 +23,13 @@ class FirstFirebase extends StatelessWidget {
     //FirebaseDatabase database = FirebaseDatabase.instance;
 
     DatabaseReference starCountRef =
-        FirebaseDatabase.instance.ref('/Registros/2345610');
+        FirebaseDatabase.instance.ref('/Registros/');
     starCountRef.onValue.listen((event) {
       final data = event.snapshot.value;
       print(data.toString());
     });
+
+    //FirebaseConnection().fetchAll();
 
     // final reg = FirebaseDatabase.instance.ref();
     // final obj = reg.child('/Registros/2345610').get();
