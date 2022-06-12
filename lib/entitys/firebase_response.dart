@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:mobile_project_1/entitys/registrys.dart';
-
-import '../domain/firebase_connection.dart';
 
 class FirebaseResponse {
   List<Registrys>? registros;
@@ -22,7 +19,7 @@ class FirebaseResponse {
     if (json['Registros'] != null) {
       registros = <Registrys>[];
       json['Registros'].forEach((key, value) {
-        //print(value);
+        print(value);
         registros!.add(Registrys.fromJson(value));
       });
     }
