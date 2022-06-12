@@ -1,12 +1,15 @@
+import 'dart:ffi';
+
 class Car {
   final String? color;
   final String? marca;
-  final String? modelo;
+  final int? modelo;
   final String? placa;
 
   Car({this.color, this.marca, this.modelo, this.placa});
 
-  factory Car.fromJson(Map<String, dynamic> json) {
+  factory Car.fromJson(Map<dynamic, dynamic> json) {
+    //print(json);
     return Car(
       color: json['color'],
       marca: json['marca'],

@@ -5,6 +5,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_project_1/domain/firebase_connection.dart';
 import 'package:mobile_project_1/views/count.dart';
 import 'package:mobile_project_1/views/count_screen.dart';
 import 'package:mobile_project_1/views/custom_counter.dart';
@@ -23,7 +24,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ListView1());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeView());
     // Scaffold(
     //   appBar: AppBar(
     //     title: const Text("Title"),

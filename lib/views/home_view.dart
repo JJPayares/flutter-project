@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_project_1/domain/firebase_connection.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final db_test = FirebaseConnection().getAll();
+    //print(db_test);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 255, 0, 0),

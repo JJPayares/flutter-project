@@ -7,7 +7,8 @@ class Client {
 
   Client({this.nombre, this.apellido, this.licencia, this.cel, this.img});
 
-  factory Client.fromJson(Map<String, dynamic> json) {
+  factory Client.fromJson(Map<dynamic, dynamic> json) {
+    //print(json);
     return Client(
       nombre: json['nombre'],
       apellido: json['apellido'],

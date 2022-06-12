@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 import 'package:mobile_project_1/entitys/firebase_response.dart';
 import 'package:mobile_project_1/entitys/registrys.dart';
 
@@ -7,9 +8,12 @@ class FirebaseConnection {
     return FirebaseDatabase.instance;
   }
 
-  DatabaseReference firebaseConnection() {
+  DatabaseReference firebaseRefrence() {
     return instanceFirebase().ref('/Registros/');
   }
+
+  // final DatabaseReference _reference =
+  //     FirebaseDatabase.instance.ref().child('/Registros/');
 
   // fetchAll() {
   //   return firebaseConnection().onValue.listen((event) {
@@ -18,10 +22,19 @@ class FirebaseConnection {
   //   });
   // }
 
-  Future<FirebaseResponse> getAllRegistros() async {
-    final snapshot = await firebaseConnection().get();
-    final registrosList = snapshot.value as List<dynamic>;
-    print(registrosList);
-    return FirebaseResponse.fromJson(registrosList);
+  Future<FirebaseResponse> getAll() async {
+    try {
+      DatabaseReference _ref = firebaseRefrence();
+      DataSnapshot res = await _ref.get();
+      //final response = FirebaseResponse.fromJson(res.value as List);
+      final response = FirebaseResponse.fromJson(res.value as Map);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
+
+  // DatabaseReference getAll() {
+  //   return _reference;
+  // }
 }

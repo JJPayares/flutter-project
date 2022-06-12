@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project_1/entitys/registrys.dart';
 
 class ListView1 extends StatelessWidget {
   ListView1({Key? key}) : super(key: key);
@@ -121,10 +120,9 @@ class ListView1 extends StatelessWidget {
       "image_url": "https://m.media-amazon.com/images/I/51ARWol7QpL.jpg"
     },
   ];
-  var registrys = Registrys();
+
   @override
   Widget build(BuildContext context) {
-    //print(response);
     return Scaffold(
         appBar: AppBar(title: const Text('List of novels')),
         body: ListView.builder(

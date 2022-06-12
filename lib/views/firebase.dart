@@ -22,12 +22,12 @@ class FirstFirebase extends StatelessWidget {
   void callDatabase() {
     //FirebaseDatabase database = FirebaseDatabase.instance;
 
-    DatabaseReference starCountRef =
-        FirebaseDatabase.instance.ref('/Registros/');
-    starCountRef.onValue.listen((event) {
-      final data = event.snapshot.value;
-      print(data.toString());
-    });
+    // DatabaseReference starCountRef =
+    //     FirebaseDatabase.instance.ref('/Registros/');
+    // starCountRef.onValue.listen((event) {
+    //   final data = event.snapshot.value;
+    //   print(data.toString());
+    // });
 
     //FirebaseConnection().fetchAll();
 
