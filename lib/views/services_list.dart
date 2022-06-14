@@ -13,14 +13,6 @@ class _ServicesListState extends State<ServicesList> {
   final dbConnection = FirebaseConnection();
   List<Registrys> list_registros = [];
 
-  final List<Map<String, dynamic>> wb_novels = [
-    {
-      "name": 'Renegade Inmortal',
-      "image_url":
-          "https://api.skynovels.net/api/get-image/RV1_Xh-IesEDwsciNO_RhQcV.jpg/novels/false"
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     fetchInfo();
