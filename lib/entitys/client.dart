@@ -17,4 +17,8 @@ class Client {
       img: json['img'],
     );
   }
+
+  String toString() {
+    return 'Client nombre: $nombre, apellido: $apellido, licencia: $licencia, cel: $cel, img:$img';
+  }
 }

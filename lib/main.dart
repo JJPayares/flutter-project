@@ -11,6 +11,7 @@ import 'package:mobile_project_1/views/count_screen.dart';
 import 'package:mobile_project_1/views/custom_counter.dart';
 import 'package:mobile_project_1/views/home_view.dart';
 import 'package:mobile_project_1/views/list_view_1.dart';
+import 'package:mobile_project_1/views/services_list.dart';
 import 'package:mobile_project_1/views/text_whit_alert.dart';
 
 import 'views/firebase.dart';
@@ -24,7 +25,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ListView1());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: ServicesList());
     // Scaffold(
     //   appBar: AppBar(
     //     title: const Text("Title"),

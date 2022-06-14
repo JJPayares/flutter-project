@@ -125,7 +125,7 @@ class ListView1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var testDB = FirebaseConnection().getAll();
-    print(testDB);
+    var test2 = FirebaseConnection().getOne('00001');
     return Scaffold(
         appBar: AppBar(title: const Text('List of novels')),
         body: ListView.builder(
