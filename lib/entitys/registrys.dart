@@ -10,7 +10,7 @@ class Registrys {
   Registrys({this.client, this.service, this.car});
 
   factory Registrys.fromJson(Map<dynamic, dynamic> json) {
-    //print(json['Carro']);
+    print(json);
     return Registrys(
         client:
             json['Cliente'] != null ? Client.fromJson(json['Cliente']) : null,
