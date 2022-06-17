@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_project_1/views/profile_view.dart';
 import 'package:mobile_project_1/views/services_list.dart';
 
 class Menu extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MenuState extends State<Menu> {
   static const List<Widget> _widgetOptions = <Widget>[
     Text('Index 0: Home', style: optionStyle),
     ServicesList(),
-    Text('Index 2: Profile', style: optionStyle),
+    ProfileView(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,10 +32,10 @@ class _MenuState extends State<Menu> {
     return
         //ServicesList();
         Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.pink,
-        title: const Text("Welcome!"),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.pink,
+      //   title: const Text("Welcome!"),
+      // ),
       body: Container(
         alignment: Alignment.center,
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -47,7 +48,7 @@ class _MenuState extends State<Menu> {
               backgroundColor: Colors.amber),
           BottomNavigationBarItem(
               icon: Icon(Icons.car_repair),
-              label: 'Service',
+              label: 'Services',
               backgroundColor: Colors.black),
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
