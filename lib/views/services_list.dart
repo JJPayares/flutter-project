@@ -17,6 +17,7 @@ class _ServicesListState extends State<ServicesList> {
   Widget build(BuildContext context) {
     fetchInfo();
     return Scaffold(
+        backgroundColor: const Color.fromARGB(234, 186, 221, 250),
         appBar: AppBar(
             title: const Center(
           child: Text('Lista de datos de la db'),
@@ -30,13 +31,7 @@ class _ServicesListState extends State<ServicesList> {
     return ListView.builder(
       itemCount: list_registros.length,
       itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(list_registros[index].client!.img!),
-          ),
-          title: Text(
-              '${list_registros[index].client!.nombre} ${list_registros[index].client!.apellido!}'),
-        );
+        return CustomCard(list_registros);
       },
     );
   }
@@ -48,5 +43,28 @@ class _ServicesListState extends State<ServicesList> {
         list_registros = getElements.registros!;
       });
     }
+//print(list_registros);
+  }
+}
+
+class CustomCard extends StatelessWidget {
+  const CustomCard(List lista, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        elevation: 2,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        child: const SizedBox(
+          width: 370,
+          height: 120,
+          child: Center(
+            child: Text("Card vacia"),
+          ),
+        ),
+      ),
+    );
   }
 }
