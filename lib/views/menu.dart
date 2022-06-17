@@ -29,13 +29,7 @@ class _MenuState extends State<Menu> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        //ServicesList();
-        Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.pink,
-      //   title: const Text("Welcome!"),
-      // ),
+    return Scaffold(
       body: Container(
         alignment: Alignment.center,
         child: _widgetOptions.elementAt(_selectedIndex),

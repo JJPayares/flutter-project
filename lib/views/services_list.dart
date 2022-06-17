@@ -48,6 +48,5 @@ class _ServicesListState extends State<ServicesList> {
         list_registros = getElements.registros!;
       });
     }
-    //print(list_registros);
   }
 }
