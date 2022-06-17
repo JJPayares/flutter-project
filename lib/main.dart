@@ -12,6 +12,7 @@ import 'package:mobile_project_1/views/custom_counter.dart';
 import 'package:mobile_project_1/views/home_view.dart';
 import 'package:mobile_project_1/views/list_view_1.dart';
 import 'package:mobile_project_1/views/services_list.dart';
+import 'package:mobile_project_1/views/splash.dart';
 import 'package:mobile_project_1/views/text_whit_alert.dart';
 
 import 'views/firebase.dart';
@@ -25,13 +26,15 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ServicesList());
-    // Scaffold(
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Splash());
+  }
+}
+
+
+// Scaffold(
     //   appBar: AppBar(
     //     title: const Text("Title"),
     //   ),
     //   body: const Center(
     //     child: Text("Hola mundo!"),
     //   )),
-  }
-}

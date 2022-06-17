@@ -14,7 +14,7 @@ class Splash extends StatefulWidget {
 class Home extends State<Splash> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(

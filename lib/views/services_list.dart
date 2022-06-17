@@ -3,7 +3,7 @@ import 'package:mobile_project_1/domain/firebase_connection.dart';
 import 'package:mobile_project_1/entitys/registrys.dart';
 
 class ServicesList extends StatefulWidget {
-  ServicesList({Key? key}) : super(key: key);
+  const ServicesList({Key? key}) : super(key: key);
 
   @override
   State<ServicesList> createState() => _ServicesListState();
@@ -17,10 +17,10 @@ class _ServicesListState extends State<ServicesList> {
   Widget build(BuildContext context) {
     fetchInfo();
     return Scaffold(
-        appBar: AppBar(title: const Text('Lista de datos de la db')),
+        //appBar: AppBar(title: const Text('Lista de datos de la db')),
         body: Center(
-          child: listData(),
-        ));
+      child: listData(),
+    ));
   }
 
   Widget listData() {
