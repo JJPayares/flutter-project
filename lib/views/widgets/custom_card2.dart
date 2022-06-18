@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomCard2 extends StatelessWidget {
-  const CustomCard2(List lista, {Key? key}) : super(key: key);
+  const CustomCard2(List lista, int index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,16 @@ class CustomCard2 extends StatelessWidget {
                 child: Column(
               children: [
                 ListTile(
-                  trailing: Icon(Icons.navigate_next_rounded),
+                  trailing: IconButton(
+                    icon: const Icon(
+                      Icons.navigate_next,
+                      size: 20,
+                      color: Colors.green,
+                    ),
+                    onPressed: () {
+                      print("next");
+                    },
+                  ),
                   title: const Text('Client Full Name'),
                   subtitle: Text(
                     'Car model',
@@ -57,32 +66,28 @@ class CustomCard2 extends StatelessWidget {
 }
 
 
-// Center(
-//       child: Card(
-//         clipBehavior: Clip.antiAlias,
-//         child: Column(
-//           children: [
-//             SizedBox(
-//               height: 20,
-//             ),
-//             const CircleAvatar(
-//               backgroundColor: Color.fromARGB(255, 104, 102, 102),
-//               minRadius: 60.0,
-//               child: CircleAvatar(
-//                 radius: 50.0,
-//                 backgroundImage: NetworkImage(
-//                     "https://www.attendit.net/images/easyblog_shared/July_2018/7-4-18/totw_network_profile_400.jpg"),
+// Row(
+//             mainAxisSize: MainAxisSize.min,
+//             children: <Widget>[
+//               IconButton(
+//                 icon: Icon(
+//                   Icons.favorite_border,
+//                   size: 20.0,
+//                   color: Colors.brown[900],
+//                 ),
+//                 onPressed: () {
+//                   //   _onDeleteItemPressed(index);
+//                 },
 //               ),
-//             ),
-//             ListTile(
-//               trailing: Icon(Icons.navigate_next_rounded),
-//               title: const Text('Client Full Name'),
-//               subtitle: Text(
-//                 'Car model',
-//                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
+//               IconButton(
+//                 icon: Icon(
+//                   Icons.delete_outline,
+//                   size: 20.0,
+//                   color: Colors.brown[900],
+//                 ),
+//                 onPressed: () {
+//                   //   _onDeleteItemPressed(index);
+//                 },
 //               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
+//             ],
+//           )

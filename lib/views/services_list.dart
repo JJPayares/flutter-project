@@ -33,7 +33,7 @@ class _ServicesListState extends State<ServicesList> {
     return ListView.builder(
       itemCount: list_registros.length,
       itemBuilder: (BuildContext context, int index) {
-        return CustomCard2(list_registros);
+        return CustomCard2(list_registros, index);
       },
     );
   }
