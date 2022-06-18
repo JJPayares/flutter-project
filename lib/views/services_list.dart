@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_project_1/domain/firebase_connection.dart';
 import 'package:mobile_project_1/entitys/registrys.dart';
+import 'package:mobile_project_1/views/widgets/custom_card1.dart';
+import 'package:mobile_project_1/views/widgets/custom_card2.dart';
 
 class ServicesList extends StatefulWidget {
   const ServicesList({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class _ServicesListState extends State<ServicesList> {
     return ListView.builder(
       itemCount: list_registros.length,
       itemBuilder: (BuildContext context, int index) {
-        return CustomCard(list_registros);
+        return CustomCard2(list_registros);
       },
     );
   }
@@ -44,27 +46,5 @@ class _ServicesListState extends State<ServicesList> {
       });
     }
 //print(list_registros);
-  }
-}
-
-class CustomCard extends StatelessWidget {
-  const CustomCard(List lista, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        elevation: 2,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-        child: const SizedBox(
-          width: 370,
-          height: 120,
-          child: Center(
-            child: Text("Card vacia"),
-          ),
-        ),
-      ),
-    );
   }
 }
