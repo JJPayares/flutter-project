@@ -76,6 +76,30 @@ class ProfileView extends StatelessWidget {
               ),
             ],
           ),
+          Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            child: const SizedBox(
+              width: 370,
+              height: 100,
+              child: Center(
+                child: Text("Info del cliente"),
+              ),
+            ),
+          ),
+          Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            child: const SizedBox(
+              width: 370,
+              height: 100,
+              child: Center(
+                child: Text("Info del carro del cliente"),
+              ),
+            ),
+          ),
         ],
       ),
     );
