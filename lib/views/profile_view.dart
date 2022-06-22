@@ -15,7 +15,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> userPhones = [registry.client!.cel.toString()];
+    List<String> userPhones = [registry!.client!.cel.toString()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,

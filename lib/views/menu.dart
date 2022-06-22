@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project_1/views/profile_view.dart';
+import 'package:mobile_project_1/views/admin_profile.dart';
 import 'package:mobile_project_1/views/services_list.dart';
+import 'package:mobile_project_1/views/welcome_splash.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -16,9 +17,9 @@ class _MenuState extends State<Menu> {
       TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const Text('Index 0: Home', style: optionStyle),
+    const WelcomeSplash(),
     const ServicesList(),
-    ProfileView(),
+    const AdminProfileView(),
   ];
 
   void _onItemTapped(int index) {
