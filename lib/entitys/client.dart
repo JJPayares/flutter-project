@@ -8,7 +8,6 @@ class Client {
   Client({this.nombre, this.apellido, this.licencia, this.cel, this.img});
 
   factory Client.fromJson(Map<dynamic, dynamic> json) {
-    //print(json);
     return Client(
       nombre: json['nombre'],
       apellido: json['apellido'],
@@ -22,5 +21,3 @@ class Client {
     return 'Client nombre: $nombre, apellido: $apellido, licencia: $licencia, cel: $cel, img:$img';
   }
 }
-
-

@@ -29,12 +29,3 @@ class MyApp extends StatelessWidget {
     return MaterialApp(debugShowCheckedModeBanner: false, home: Splash());
   }
 }
-
-
-// Scaffold(
-    //   appBar: AppBar(
-    //     title: const Text("Title"),
-    //   ),
-    //   body: const Center(
-    //     child: Text("Hola mundo!"),
-    //   )),

@@ -10,7 +10,6 @@ class Registrys {
   Registrys({this.client, this.service, this.car});
 
   factory Registrys.fromJson(Map<dynamic, dynamic> json) {
-    //print(json['Carro']);
     return Registrys(
         client:
             json['Cliente'] != null ? Client.fromJson(json['Cliente']) : null,
@@ -22,6 +21,6 @@ class Registrys {
 
   @override
   String toString() {
-    return 'Registrys{Client: $client, Service: $service, Car: $car}';
+    return '{$client,$service, $car}';
   }
 }

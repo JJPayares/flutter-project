@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_project_1/domain/firebase_connection.dart';
 import 'package:mobile_project_1/entitys/registrys.dart';
-import 'package:mobile_project_1/views/widgets/custom_card1.dart';
 import 'package:mobile_project_1/views/widgets/custom_card2.dart';
 
 class ServicesList extends StatefulWidget {
@@ -33,7 +32,7 @@ class _ServicesListState extends State<ServicesList> {
     return ListView.builder(
       itemCount: list_registros.length,
       itemBuilder: (BuildContext context, int index) {
-        return CustomCard2(list_registros, index);
+        return CustomCard2(index: index, lista: list_registros);
       },
     );
   }
@@ -45,6 +44,5 @@ class _ServicesListState extends State<ServicesList> {
         list_registros = getElements.registros!;
       });
     }
-//print(list_registros);
   }
 }

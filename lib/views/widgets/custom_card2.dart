@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_project_1/domain/firebase_connection.dart';
+import 'package:mobile_project_1/views/profile_view.dart';
 
 class CustomCard2 extends StatelessWidget {
-  const CustomCard2(List lista, int index, {Key? key}) : super(key: key);
+  final List lista;
+  final int index;
+
+  CustomCard2({Key? key, required this.lista, required this.index})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var registry = lista[index];
+
     return Center(
       child: Card(
         clipBehavior: Clip.antiAlias,
         child: Row(
           children: [
             Column(
-              children: const [
-                SizedBox(
+              children: [
+                const SizedBox(
                   height: 10,
                 ),
                 CircleAvatar(
@@ -20,11 +28,10 @@ class CustomCard2 extends StatelessWidget {
                   minRadius: 40.0,
                   child: CircleAvatar(
                     radius: 30.0,
-                    backgroundImage: NetworkImage(
-                        "https://www.attendit.net/images/easyblog_shared/July_2018/7-4-18/totw_network_profile_400.jpg"),
+                    backgroundImage: NetworkImage(registry.client!.img!),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 )
               ],
@@ -47,12 +54,19 @@ class CustomCard2 extends StatelessWidget {
                       color: Colors.green,
                     ),
                     onPressed: () {
-                      print("next");
+                      print(registry.client!.nombre);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfileView(
+                                    registry: registry,
+                                  )));
                     },
                   ),
-                  title: const Text('Client Full Name'),
+                  title: Text(
+                      '${registry.client!.nombre} ${registry.client!.apellido}'),
                   subtitle: Text(
-                    'Car model',
+                    '${registry.car!.marca} ${registry.car!.modelo} ',
                     style: TextStyle(color: Colors.black.withOpacity(0.6)),
                   ),
                 ),
@@ -64,30 +78,3 @@ class CustomCard2 extends StatelessWidget {
     );
   }
 }
-
-
-// Row(
-//             mainAxisSize: MainAxisSize.min,
-//             children: <Widget>[
-//               IconButton(
-//                 icon: Icon(
-//                   Icons.favorite_border,
-//                   size: 20.0,
-//                   color: Colors.brown[900],
-//                 ),
-//                 onPressed: () {
-//                   //   _onDeleteItemPressed(index);
-//                 },
-//               ),
-//               IconButton(
-//                 icon: Icon(
-//                   Icons.delete_outline,
-//                   size: 20.0,
-//                   color: Colors.brown[900],
-//                 ),
-//                 onPressed: () {
-//                   //   _onDeleteItemPressed(index);
-//                 },
-//               ),
-//             ],
-//           )

@@ -12,22 +12,6 @@ class FirebaseConnection {
     return instanceFirebase().ref('/Registros/');
   }
 
-  DatabaseReference firebaseRefrenceById(id) {
-    return instanceFirebase().ref('/Registros/Registros/$id');
-  }
-
-  // Future<FirebaseResponse> getAll() async {
-  //   try {
-  //     DatabaseReference _ref = firebaseRefrence();
-  //     DataSnapshot res = await _ref.get();
-  //     //final response = FirebaseResponse.fromJson(res.value as List);
-  //     final response = FirebaseResponse.fromJson(res.value as Map);
-  //     return response;
-  //   } catch (e) {
-  //     rethrow;
-  //   }
-  // }
-
   Future<FirebaseResponse> getAll() async {
     try {
       DatabaseReference _ref = firebaseRefrence();
@@ -43,13 +27,12 @@ class FirebaseConnection {
 
   Future<FirebaseResponse> getOne(id) async {
     try {
-      DatabaseReference _ref = firebaseRefrenceById(id);
-      DataSnapshot res = await _ref.get();
+      DatabaseReference _ref = firebaseRefrence();
+      DataSnapshot res = await _ref.child("/$id").get();
       final toJson = json.encode(res.value);
       final fromJson = json.decode(toJson);
-      final list = fromJson.values;
       final response = FirebaseResponse.fromJson(fromJson.values.toList());
-      return list;
+      return response;
     } catch (e) {
       rethrow;
     }

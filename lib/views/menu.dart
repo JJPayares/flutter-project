@@ -15,9 +15,9 @@ class _MenuState extends State<Menu> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Home', style: optionStyle),
-    ServicesList(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Text('Index 0: Home', style: optionStyle),
+    const ServicesList(),
     ProfileView(),
   ];
 

@@ -6,7 +6,6 @@ class Service {
   Service({this.lavado, this.polish, this.tapiceria});
 
   factory Service.fromJson(Map<dynamic, dynamic> json) {
-    //print(json);
     return Service(
         lavado: json['lavado'],
         polish: json['polish'],

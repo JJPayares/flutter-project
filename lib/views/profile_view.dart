@@ -1,14 +1,21 @@
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:flutter_sms/flutter_sms.dart';
+
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {
-  const ProfileView({Key? key}) : super(key: key);
+  final registry;
+  ProfileView({Key? key, this.registry}) : super(key: key);
   static Map<String, dynamic> profileData = {
-    "name": 'Juan',
-    "lastname": 'Payares',
+    "name": 'No name',
+    "lastname": 'No LastName',
     "img": 'http://i.imgur.com/DrAgTNj.png',
+    "tel": '1233434',
   };
+
   @override
   Widget build(BuildContext context) {
+    List<String> userPhones = [registry.client!.cel.toString()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
@@ -25,7 +32,7 @@ class ProfileView extends StatelessWidget {
               ),
               Center(
                 child: Text(
-                  '${profileData["name"]} ${profileData["lastname"]}',
+                  '${registry.client!.nombre} ${registry.client!.apellido}',
                   style: const TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
@@ -36,11 +43,11 @@ class ProfileView extends StatelessWidget {
                 height: 2,
               ),
               CircleAvatar(
-                backgroundColor: Color.fromARGB(255, 104, 102, 102),
+                backgroundColor: const Color.fromARGB(255, 104, 102, 102),
                 minRadius: 60.0,
                 child: CircleAvatar(
                   radius: 50.0,
-                  backgroundImage: NetworkImage(profileData["img"]),
+                  backgroundImage: NetworkImage(registry.client!.img!),
                 ),
               ),
             ],
@@ -54,24 +61,35 @@ class ProfileView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               CircleAvatar(
-                backgroundColor: Color.fromARGB(255, 135, 214, 139),
+                backgroundColor: const Color.fromARGB(255, 222, 238, 223),
                 minRadius: 35.0,
-                child: Icon(
-                  Icons.call,
-                  size: 30.0,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.call,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    await FlutterPhoneDirectCaller.callNumber(
+                        registry!.client!.cel.toString());
+                  },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               CircleAvatar(
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: const Color.fromARGB(255, 222, 238, 223),
                 minRadius: 35.0,
-                child: Icon(
-                  Icons.message,
-                  size: 30.0,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.message,
+                    size: 30.0,
+                  ),
+                  onPressed: () {
+                    _smsToClient(userPhones);
+                  },
                 ),
               ),
             ],
@@ -80,11 +98,22 @@ class ProfileView extends StatelessWidget {
             elevation: 2,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
-            child: const SizedBox(
+            child: SizedBox(
               width: 370,
               height: 100,
               child: Center(
-                child: Text("Info del cliente"),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Detalles del Cliente",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                          "Licencia de conduccion # ${registry.client!.licencia}"),
+                      Text("Numero de contacto # ${registry.client!.cel}"),
+                    ]),
               ),
             ),
           ),
@@ -92,16 +121,59 @@ class ProfileView extends StatelessWidget {
             elevation: 2,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
-            child: const SizedBox(
+            child: SizedBox(
               width: 370,
               height: 100,
               child: Center(
-                child: Text("Info del carro del cliente"),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Detalles del vehiculo",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                          "Vehiculo ${registry.car!.marca} - ${registry.car!.color} del año ${registry.car!.modelo}"),
+                      Text("Placa # ${registry.car!.placa} de Colombia"),
+                    ]),
+              ),
+            ),
+          ),
+          Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            child: SizedBox(
+              width: 370,
+              height: 100,
+              child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Servicios solicitados",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text("Tapizado # ${registry.service!.tapiceria}"),
+                      Text("Pulido # ${registry.service!.polish}"),
+                      Text("Lavado # ${registry.service!.lavado}"),
+                    ]),
               ),
             ),
           ),
         ],
       ),
     );
+  }
+
+  void _smsToClient(List<String> recipents) async {
+    String _result =
+        await sendSMS(message: 'Servicio finalizado', recipients: recipents)
+            .catchError((err) {
+      print(err);
+    });
+    print(_result);
   }
 }

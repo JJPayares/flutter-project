@@ -7,7 +7,6 @@ class Car {
   Car({this.color, this.marca, this.modelo, this.placa});
 
   factory Car.fromJson(Map<dynamic, dynamic> json) {
-    //print(json);
     return Car(
       color: json['color'],
       marca: json['marca'],
