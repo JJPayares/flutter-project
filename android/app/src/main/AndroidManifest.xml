@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.mobile_project_1">
     <uses-permission android:name="android.permission.SEND_SMS" />
 
-    <application android:label="mobile_project_1" android:name="${applicationName}" android:icon="@mipmap/ic_carwash">
+    <application android:label="Car Wash App - Employee" android:name="${applicationName}" android:icon="@mipmap/ic_carwash">
         <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
